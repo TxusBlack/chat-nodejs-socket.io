@@ -7,8 +7,17 @@ var server = require('http').Server(app);
 // Pasar la libreria de socket.io para trabajarlos
 var io = require('socket.io')(server);
 
+// Cargar una vista estática con un middleware
+app.use(express.static('client')); // Se carga todos los html de client
+
+
 app.get('/hola-mundo', function (req, res) {
     res.status(200).send('Hola mundo desde una ruta');
+});
+
+// Abrimos la conexión a nuestro socket
+io.on('connection', function (socket) {
+    console.log('El cliente con IP: '+socket.handshake.address+' se ha coenctado...');
 });
 
 server.listen(6677, function () {
