@@ -15,9 +15,18 @@ app.get('/hola-mundo', function (req, res) {
     res.status(200).send('Hola mundo desde una ruta');
 });
 
+// Mensaje temporal para no usar bd
+var messages = [{
+    id: 1,
+    texto: 'Bienvenido al chat en tiempo real de Socket.io y NodeJS de TxusBlack',
+    nickname: 'Bot - TxusBlack'
+}];
+
 // Abrimos la conexión a nuestro socket
 io.on('connection', function (socket) {
-    console.log('El cliente con IP: '+socket.handshake.address+' se ha coenctado...');
+    console.log('El cliente con IP: ' + socket.handshake.address + ' se ha coenctado...');
+    // Emitir a todos los clientes el mensaje
+    socket.emit('messages', messages);
 });
 
 server.listen(6677, function () {
