@@ -1,5 +1,5 @@
 // Añadimos la url del server del socket y forzamos la conexión
-var socket = io.connect('http://localhost:8080', { 'forceNew': true });
+var socket = io.connect('http://localhost:5000', { 'forceNew': true });
 
 // Recibir el emit del server
 socket.on('messages', function (data) {

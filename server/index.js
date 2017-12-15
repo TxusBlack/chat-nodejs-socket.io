@@ -8,7 +8,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 // Set the port of app for heroku
-var port = 8080;
+var port = 5000;
 
 // Cargar una vista estática con un middleware
 app.use(express.static('client')); // Se carga todos los html de client
@@ -42,6 +42,6 @@ io.on('connection', function (socket) {
     });
 });
 
-server.listen(8080, function () {
-    console.log('El server está funcionando en http://localhost:8080!');
+server.listen(5000, function () {
+    console.log('El server está funcionando en http://localhost:5000!');
 });
