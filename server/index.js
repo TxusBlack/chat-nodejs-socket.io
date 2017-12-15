@@ -27,6 +27,16 @@ io.on('connection', function (socket) {
     console.log('El cliente con IP: ' + socket.handshake.address + ' se ha coenctado...');
     // Emitir a todos los clientes el mensaje
     socket.emit('messages', messages);
+
+    // Recibir el evento de los mensajes y emitirla a todos los clientes
+    socket.on('add-message', function (data) {
+        // Añado el data recibido al array de messages
+        messages.push(data);
+
+        // Emitir a todos los clientes del chat que están conectados el mensaje
+        // El mismo array actualizado
+        io.sockets.emit('messages', messages);
+    });
 });
 
 server.listen(6677, function () {

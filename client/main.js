@@ -20,5 +20,22 @@ function render(data) {
         `);
     }).join(' ');
 
-    document.getElementById('messages').innerHTML = html;
+    var div_msgs = document.getElementById('messages');
+    div_msgs.innerHTML = html;
+    div_msgs.scrollTop = div_msgs.scrollHeight;
+}
+
+function addMessage(e) {
+    // Recojo los valores del html en un objeto
+    var message = {
+        nickname: document.getElementById('nickname').value,
+        texto: document.getElementById('texto').value
+    };
+
+    document.getElementById('nickname').style.display = 'none';
+    document.getElementById('texto').value = '';
+    // Se lo emito al socket
+    socket.emit('add-message', message);
+    // Corto el proceso
+    return false;
 }
