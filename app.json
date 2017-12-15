@@ -1,0 +1,7 @@
+{
+    "name":"Chat en tiempo real con NodeJS y Socket.io",
+    "description":"Prueba del chat en Heroku",
+    "repository":"https://github.com/TxusBlack/chat-nodejs-socket.io.git",
+    "keywords":["chat","nodejs","real-time","socket.io"],
+    "image":"server/nodejs"
+   }
