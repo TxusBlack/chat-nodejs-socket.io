@@ -39,6 +39,6 @@ io.on('connection', function (socket) {
     });
 });
 
-server.listen(80, function () {
-    console.log('El server está funcionando en http://localhost:80!');
+server.listen(5000, function () {
+    console.log('El server está funcionando en http://localhost:5000!');
 });
