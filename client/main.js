@@ -1,6 +1,6 @@
 var port = 3000;
 // Añadimos la url del server del socket y forzamos la conexión
-var socket = io.connect('http://localhost:' + port, { 'forceNew': true });
+var socket = io.connect('http://localhost:' + process.env.PORT || port, { 'forceNew': true });
 
 // Recibir el emit del server
 socket.on('messages', function (data) {
