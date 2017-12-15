@@ -8,7 +8,7 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 // Set the port of app for heroku
-var port = 5000;
+var port = 3000;
 
 // Cargar una vista estática con un middleware
 app.use(express.static('client')); // Se carga todos los html de client
